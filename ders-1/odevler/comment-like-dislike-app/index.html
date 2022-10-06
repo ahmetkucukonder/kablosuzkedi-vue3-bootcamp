@@ -1,60 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Comment Like/Dislike App</title>
     <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
     <header>Comment Like/Dislike App</header>
-    <div class="container">
-      <div class="comment--like--dislike--app">
-        <div class="card mb-10 comment--item">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint deserunt, tempore accusamus iusto nobis dolore ratione itaque perferendis
-            delectus? Nostrum corporis, quod voluptates quis consequuntur eveniet beatae dolor aperiam ad.
-          </p>
-          <div class="action--button--container text-right mt-10">
-            <button class="btn-sm btn-success">Beğendim (10)</button>
-            <button class="btn-sm btn-danger">Beğenmedim (5)</button>
-          </div>
+    <div id="app">
+        <div class="container">
+            <div class="comment--like--dislike--app">
+                <div v-if="comments.length > 0">
+                    <div class="card mb-10 comment--item" v-for="comment in comments">
+                        <p>
+                            {{comment.text}}
+                        </p>
+                        <div class="action--button--container text-right mt-10">
+                            <button class="btn-sm btn-success" @click="likeComment(comment)">Beğendim ({{comment.likes}})</button>
+                            <button class="btn-sm btn-danger" @click="dislikeComment(comment)">Beğenmedim ({{comment.dislikes}})</button>
+                        </div>
+                    </div>
+                </div>
+                <div v-else class="alert alert-danger">Yorum bulunamadı...</div>
+            </div>
         </div>
-
-        <div class="card mb-10 comment--item">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint deserunt, tempore accusamus iusto nobis dolore ratione itaque perferendis
-            delectus? Nostrum corporis, quod voluptates quis consequuntur eveniet beatae dolor aperiam ad.
-          </p>
-          <div class="action--button--container text-right mt-10">
-            <button class="btn-sm btn-success">Beğendim (10)</button>
-            <button class="btn-sm btn-danger">Beğenmedim (5)</button>
-          </div>
-        </div>
-
-        <div class="card mb-10 comment--item">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint deserunt, tempore accusamus iusto nobis dolore ratione itaque perferendis
-            delectus? Nostrum corporis, quod voluptates quis consequuntur eveniet beatae dolor aperiam ad.
-          </p>
-          <div class="action--button--container text-right mt-10">
-            <button class="btn-sm btn-success">Beğendim (10)</button>
-            <button class="btn-sm btn-danger">Beğenmedim (5)</button>
-          </div>
-        </div>
-
-        <div class="card mb-10 comment--item">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint deserunt, tempore accusamus iusto nobis dolore ratione itaque perferendis
-            delectus? Nostrum corporis, quod voluptates quis consequuntur eveniet beatae dolor aperiam ad.
-          </p>
-          <div class="action--button--container text-right mt-10">
-            <button class="btn-sm btn-success">Beğendim (10)</button>
-            <button class="btn-sm btn-danger">Beğenmedim (5)</button>
-          </div>
-        </div>
-      </div>
     </div>
-  </body>
+    <script src="app.js"></script>
+</body>
+
 </html>
