@@ -6,8 +6,8 @@ Vue.createApp({
         };
     },
     watch: {
-        value() {
-            this.result = this.value == 33 ? 'Tamamlandı' : 'Henüz Bitmedi!!';
+        value(v) {
+            this.result = v == 33 ? 'Tamamlandı' : 'Henüz Bitmedi!!';
         },
         result() {
             setTimeout(() => {
