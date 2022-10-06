@@ -1,59 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Class List App</title>
     <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <header>Class List App</header>
-    <div class="container">
-      <div class="class--list--app">
-        <div class="card">
-          <ul class="class-list">
-            <li>
-              <label>
-                <input class="mr-5" type="checkbox" />
-                <span>Background Color</span>
-              </label>
-            </li>
-            <li>
-              <label>
-                <input class="mr-5" type="checkbox" />
-                <span>Border</span>
-              </label>
-            </li>
-            <li>
-              <label>
-                <input class="mr-5" type="checkbox" />
-                <span>Border Radius</span>
-              </label>
-            </li>
-            <li>
-              <label>
-                <input class="mr-5" type="checkbox" />
-                <span>Color</span>
-              </label>
-            </li>
-            <li>
-              <label>
-                <input class="mr-5" type="checkbox" />
-                <span>Font Bold</span>
-              </label>
-            </li>
-            <li>
-              <label>
-                <input class="mr-5" type="checkbox" />
-                <span>Font Italic</span>
-              </label>
-            </li>
-          </ul>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
 
-          <textarea rows="5"></textarea>
+<body>
+    <header>Class List App</header>
+    <div id="app">
+        <div class="container">
+            <div class="class--list--app">
+                <div class="card">
+                    <ul class="class-list">
+                        <li>
+                            <label>
+                                <input @change="addClass('bg-success')" class="mr-5" type="checkbox" />
+                                <span>Background Color</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input @change="addClass('border')" class="mr-5" type="checkbox" />
+                                <span>Border</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input @change="addClass('border-radius')" class="mr-5" type="checkbox" />
+                                <span>Border Radius</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input @change="addClass('text-danger')" class="mr-5" type="checkbox" />
+                                <span>Color</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input @change="addClass('font-weight-bold')" class="mr-5" type="checkbox" />
+                                <span>Font Bold</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input @change="addClass('font-italic')" class="mr-5" type="checkbox" />
+                                <span>Font Italic</span>
+                            </label>
+                        </li>
+                    </ul>
+
+                    <textarea ref="textarea" rows="5"></textarea>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </body>
+    <script src="main.js"></script>
+</body>
+
 </html>
